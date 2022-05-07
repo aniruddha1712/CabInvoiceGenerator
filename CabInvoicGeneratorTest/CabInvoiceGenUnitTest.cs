@@ -34,12 +34,10 @@ namespace CabInvoicGeneratorTest
         [TestMethod]
         public void GivenMultipleRidesReturnAggregateFare()
         {
-            //Arrange
-            double actual, expected = 320;
             Ride[] cabRides = { new Ride(10, 15), new Ride(10, 15) };
-            //Act
-            actual = generateNormalFare.CalculateAgreegateFare(cabRides);
-            //Assert
+            InvoiceSummary expected = new InvoiceSummary(cabRides.Length, 320);
+            var actual = generateNormalFare.CalculateAgreegateFare(cabRides);
+
             Assert.AreEqual(actual, expected);
         }
 
